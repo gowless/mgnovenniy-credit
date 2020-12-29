@@ -35,6 +35,9 @@ public class CloakActivity extends AppCompatActivity {
     //top text button
     TextView topTextCloak;
 
+    //text pls
+    TextView textViewPls;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,9 +71,6 @@ public class CloakActivity extends AppCompatActivity {
             }
         });
 
-
-
-
     }
 
     @Override
@@ -92,7 +92,8 @@ public class CloakActivity extends AppCompatActivity {
         textView.setVisibility(View.VISIBLE);
         imageView.setVisibility(View.VISIBLE);
         progressBar.setVisibility(View.GONE);
-        infoTabIcon.setVisibility(View.GONE);
+        //infoTabIcon.setVisibility(View.GONE);
+        textViewPls.setVisibility(View.VISIBLE);
     }
 
     // setting cloak adapter
@@ -121,5 +122,8 @@ public class CloakActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar2);
 
         topTextCloak = findViewById(R.id.textCloakTop);
+
+        //text view pls
+        textViewPls = findViewById(R.id.text_pls);
     }
 }

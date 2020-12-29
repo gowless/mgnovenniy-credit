@@ -21,6 +21,9 @@ public class BeforeMainActivity extends AppCompatActivity {
     //info tab icon declaring
     ImageView infoTabIcon;
 
+    //text pls
+    TextView textViewPls;
+
     //img non-ithernet
     ImageView imageView;
 
@@ -49,6 +52,8 @@ public class BeforeMainActivity extends AppCompatActivity {
 
 
          */
+        //text view pls
+        textViewPls = findViewById(R.id.text_pls);
         progressBar = findViewById(R.id.progressBar3);
 
         //textview and image of non-inherent case
@@ -107,7 +112,8 @@ public class BeforeMainActivity extends AppCompatActivity {
         textView.setVisibility(View.VISIBLE);
         imageView.setVisibility(View.VISIBLE);
         progressBar.setVisibility(View.GONE);
-        infoTabIcon.setVisibility(View.GONE);
+       // infoTabIcon.setVisibility(View.GONE);
+        textViewPls.setVisibility(View.VISIBLE);
     }
 
 }

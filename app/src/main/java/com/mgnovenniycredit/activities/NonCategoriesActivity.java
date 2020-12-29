@@ -36,6 +36,9 @@ public class NonCategoriesActivity extends AppCompatActivity {
     //text non-ithernet
     TextView textView;
 
+    //text pls
+    TextView textViewPls;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,6 +112,8 @@ public class NonCategoriesActivity extends AppCompatActivity {
 
         //info tab icon init
        // infoTabIcon = findViewById(R.id.info_tab_icon);
+        //text view pls
+        textViewPls = findViewById(R.id.text_pls);
     }
 
     //setting image and text in non-ethernet case
@@ -116,7 +121,8 @@ public class NonCategoriesActivity extends AppCompatActivity {
         textView.setVisibility(View.VISIBLE);
         imageView.setVisibility(View.VISIBLE);
         progressBar.setVisibility(View.GONE);
-        infoTabIcon.setVisibility(View.GONE);
+       // infoTabIcon.setVisibility(View.GONE);
+        textViewPls.setVisibility(View.VISIBLE);
     }
 
 }

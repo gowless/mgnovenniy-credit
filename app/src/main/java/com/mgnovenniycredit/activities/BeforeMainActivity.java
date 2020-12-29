@@ -58,7 +58,6 @@ public class BeforeMainActivity extends AppCompatActivity {
 
         //check for network connection
         if (isNetworkAvailable()) {
-
         } else {
             setNonEthernetCase();
         }

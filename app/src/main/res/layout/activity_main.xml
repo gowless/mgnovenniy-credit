@@ -22,20 +22,32 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tabs_layout">
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/text_pls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/pls"
+            android:textColor="#434343"
+            android:textSize="16sp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_non_Ithernet" />
 
         <TextView
             android:id="@+id/text_non_Ithernet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="32dp"
             android:fontFamily="@font/roboto_medium"
             android:gravity="center"
-            android:text="Отсутствует подключение к интернету!"
-            android:textColor="#93A0C6"
+            android:text="@string/non_inet"
+            android:textColor="#434343"
             android:textSize="16sp"
             android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/non_Ithernet" />
@@ -54,7 +66,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/topConstraint"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/bg_top_name_container"
         android:elevation="5dp"
         android:paddingTop="5dp"
@@ -68,6 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/cyrvetica_extra_bold"
+            android:gravity="center|center_vertical"
             android:text="@string/app_naim"
             android:textColor="#fff"
             android:textSize="25sp"
@@ -78,7 +91,6 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.tabs.TabLayout
-
         android:id="@+id/tabs_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -90,9 +102,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topConstraint"
+        app:tabBackground="@drawable/tab_background_unselected"
         app:tabIndicator="@drawable/bg_main_container"
         app:tabIndicatorColor="#76d078"
-        app:tabIndicatorHeight="45dp"
+        app:tabIndicatorHeight="48dp"
         app:tabRippleColor="@android:color/transparent"
         app:tabSelectedTextColor="#333333"
         app:tabTextColor="#313131">
@@ -131,10 +144,11 @@
         <TextView
             android:id="@+id/textView2"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_medium"
             android:gravity="left|center_vertical"
             android:text="@string/top_notif_text"
+            android:textColor="#434343"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline"

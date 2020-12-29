@@ -9,6 +9,7 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -46,11 +47,17 @@ public class MainActivity extends AppCompatActivity {
     //text non-ithernet
     TextView textView;
 
+    //text pls
+    TextView textViewPls;
+
     //top alert
     ConstraintLayout topAlert;
 
     //top constraint
     ConstraintLayout topConstraint;
+
+    //tab layout
+    TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,6 +111,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, InfoActivity.class));
             }
         });
+
+
+        for(int i=0; i < tabLayout.getTabCount(); i++) {
+            View tab = ((ViewGroup) tabLayout.getChildAt(0)).getChildAt(i);
+            ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) tab.getLayoutParams();
+            p.setMargins(0, 0, 10, 0);
+            tab.requestLayout();
+        }
 
     }
 
@@ -172,6 +187,10 @@ public class MainActivity extends AppCompatActivity {
        // infoTabIcon = findViewById(R.id.info_tab_icon);
         //top alert
         topAlert = findViewById(R.id.topAlert);
+        //tabs layout
+        tabLayout = findViewById(R.id.tabs_layout);
+        //text view pls
+        textViewPls = findViewById(R.id.text_pls);
 
     }
 
@@ -180,7 +199,9 @@ public class MainActivity extends AppCompatActivity {
         textView.setVisibility(View.VISIBLE);
         imageView.setVisibility(View.VISIBLE);
         progressBar.setVisibility(View.GONE);
-        infoTabIcon.setVisibility(View.GONE);
+        topAlert.setVisibility(View.GONE);
+        textViewPls.setVisibility(View.VISIBLE);
+//        infoTabIcon.setVisibility(View.GONE);
     }
 
 

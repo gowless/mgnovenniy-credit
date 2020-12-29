@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'com.onesignal.androidsdk.onesignal-gradle-plugin'
 }
 
 android {
@@ -12,6 +13,7 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -53,5 +55,11 @@ dependencies {
     //install-referer and play-services
     implementation 'com.android.installreferrer:installreferrer:2.2'
     implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
+
+    //one-signal
+    implementation 'com.onesignal:OneSignal:4.0.0'
+
+    //multi-dex
+    implementation 'androidx.multidex:multidex:2.0.1'
 
 }

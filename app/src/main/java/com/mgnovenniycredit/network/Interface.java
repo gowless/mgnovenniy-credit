@@ -16,9 +16,9 @@ import retrofit2.http.Query;
 public interface Interface {
 
     //query for offers
-    @GET("v3/{id}")
+    @GET(".")
     Call<Data> getData(
-            @Path("id") String appId
+           // @Path("id") String appId
     );
 
 

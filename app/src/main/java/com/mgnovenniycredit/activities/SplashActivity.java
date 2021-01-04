@@ -120,7 +120,7 @@ public class SplashActivity extends AppCompatActivity {
     //setting to get json file and parse it to models in main case
     public void getJsonData() {
         Interface apiInterfaceCount = Initializator.getClient().create(Interface.class);
-        Call<Data> call = apiInterfaceCount.getData(APP_ID);
+        Call<Data> call = apiInterfaceCount.getData();
         call.enqueue(new Callback<Data>() {
             @Override
             public void onResponse(@NonNull Call<Data> call, @NonNull Response<Data> response) {
@@ -166,7 +166,7 @@ public class SplashActivity extends AppCompatActivity {
     //setting to get json file and parse it to models in case of cloak
      public void getJsonDataCloak(){
          Interface apiInterfaceCount = Initializator.getClient().create(Interface.class);
-         Call<Data> call = apiInterfaceCount.getData(APP_ID);
+         Call<Data> call = apiInterfaceCount.getData();
          call.enqueue(new Callback<Data>() {
              @Override
              public void onResponse(@NonNull Call<Data> call, @NonNull Response<Data> response) {

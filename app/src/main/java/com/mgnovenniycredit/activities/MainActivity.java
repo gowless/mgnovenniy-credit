@@ -191,7 +191,6 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tabs_layout);
         //text view pls
         textViewPls = findViewById(R.id.text_pls);
-
     }
 
     //setting image and text in non-ethernet case

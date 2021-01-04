@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Initializator {
 
     //main URL for connection
-    private static final String BASE_URL = "https://run.mocky.io/";
+    private static final String BASE_URL = "https://peaceful-coast-26596.herokuapp.com/";
 
     private static Retrofit retrofit = null;
     public static Retrofit getClient(){

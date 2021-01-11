@@ -30,9 +30,6 @@ public class CloakActivity extends AppCompatActivity {
     //text non-ithernet
     TextView textView;
 
-    //info tab icon declaring
-    ImageView infoTabIcon;
-
     //top text button
     TextView topTextCloak;
 

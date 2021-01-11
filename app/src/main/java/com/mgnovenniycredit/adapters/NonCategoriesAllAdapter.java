@@ -99,7 +99,8 @@ public class NonCategoriesAllAdapter extends RecyclerView.Adapter<NonCategoriesA
         holder.firstCreditSum.setText(firstCreditSum + "₽");
         holder.percentRate.setText(percentRate + "%");
         holder.timeToGet.setText(dataList.get(position).getTimeSolution().getFrom().toString()+" минут");
-        holder.payLoanTime.setText("от " + dataList.get(position).getTerm().getFrom().toString() + " до " + dataList.get(position).getTerm().getTo().toString() +" дней");
+        //holder.payLoanTime.setText("от " + dataList.get(position).getTerm().getFrom().toString() + " до " + dataList.get(position).getTerm().getTo().toString() +" дней");
+        holder.payLoanTime.setText(dataList.get(position).getTerm().getFrom().toString() + " - " + dataList.get(position).getTerm().getTo().toString()+ " дней");
         holder.nextCreditSum.setText(dataList.get(position).getAmount().getTo().toString()+"₽");
 
 

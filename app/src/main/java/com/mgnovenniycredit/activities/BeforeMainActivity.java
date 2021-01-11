@@ -18,9 +18,6 @@ import com.mgnovenniycredit.R;
 
 public class BeforeMainActivity extends AppCompatActivity {
 
-    //info tab icon declaring
-    ImageView infoTabIcon;
-
     //text pls
     TextView textViewPls;
 

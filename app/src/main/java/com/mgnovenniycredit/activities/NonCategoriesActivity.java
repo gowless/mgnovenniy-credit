@@ -11,6 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -39,6 +40,9 @@ public class NonCategoriesActivity extends AppCompatActivity {
     //text pls
     TextView textViewPls;
 
+    //constraint
+    ConstraintLayout topConstraint;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,17 +59,14 @@ public class NonCategoriesActivity extends AppCompatActivity {
             setNonEthernetCase();
         }
 
-
-
-
-        //calling function of clicked tab info icon on top
-        infoTabIcon.setOnClickListener(new View.OnClickListener() {
+        topConstraint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //starting info activity
-                startActivity(new Intent(NonCategoriesActivity.this,  InfoNonCategoryActivity.class));
+                startActivity(new Intent(NonCategoriesActivity.this, InfoDetailsActivity.class));
             }
         });
+
+
     }
 
 
@@ -103,6 +104,8 @@ public class NonCategoriesActivity extends AppCompatActivity {
         //textview and image of non-inherent case
         textView = findViewById(R.id.text_non_Ithernet);
         imageView = findViewById(R.id.non_Ithernet);
+        //constraint click
+        topConstraint = findViewById(R.id.topConstraint);
 
         //recyclerview
         recyclerView = findViewById(R.id.recyclerView);

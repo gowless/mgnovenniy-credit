@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
@@ -25,8 +26,6 @@ import com.mgnovenniycredit.R;
 
 
 public class DetailsOfferActivity extends AppCompatActivity {
-
-
 
     //progressbar declaring
     ProgressBar progressBar;
@@ -51,6 +50,9 @@ public class DetailsOfferActivity extends AppCompatActivity {
 
     //progressBarName
     ProgressBar progressBarName;
+
+    //constraint
+    ConstraintLayout topAlert;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -86,6 +88,15 @@ public class DetailsOfferActivity extends AppCompatActivity {
             }
         });
 
+        /*topAlert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DetailsOfferActivity.this, InfoDetailsActivity.class));
+            }
+        });
+        */
+
+
     }
 
 
@@ -104,6 +115,8 @@ public class DetailsOfferActivity extends AppCompatActivity {
 
         //initializing views
         textTerms = findViewById(R.id.textTerms);
+        //constraint click
+        topAlert = findViewById(R.id.topConstraint);
 
         scrollView = findViewById(R.id.scrollView2);
         imageView = findViewById(R.id.imageOffer);

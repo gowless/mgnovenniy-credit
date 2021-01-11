@@ -25,6 +25,8 @@ public class MainClass extends Application {
     //one-signal app id
     private static final String ONESIGNAL_APP_ID = "3c1ab221-301c-429a-a2bc-096f2f2da60b";
 
+    public static final String APPID = "com.mgnovenniycredit";
+    public static final String REGION = "ru";
 
 
     @Override

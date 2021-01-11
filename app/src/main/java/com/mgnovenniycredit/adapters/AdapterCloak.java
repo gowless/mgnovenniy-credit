@@ -25,7 +25,7 @@ import com.bumptech.glide.request.target.Target;
 import com.mgnovenniycredit.MainClass;
 import com.mgnovenniycredit.R;
 import com.mgnovenniycredit.activities.DetailsOfferActivity;
-import com.mgnovenniycredit.models.get.Liste;
+import com.mgnovenniycredit.models.post.get.Liste;
 
 import java.util.List;
 
@@ -73,8 +73,11 @@ public class AdapterCloak extends RecyclerView.Adapter<AdapterCloak.ViewHolder> 
         String percentRate = liste.getPercent().getFrom().toString();
 
         //setting holders to textViews
-        holder.firstCreditSum.setText(firstCreditSum + "₴");
+        holder.firstCreditSum.setText(firstCreditSum + "₽");
         holder.percentRate.setText(percentRate + "%");
+        holder.timeToGet.setText(dataList.get(position).getTimeSolution().getFrom().toString()+" минут");
+        holder.payLoanTime.setText("от " + dataList.get(position).getTerm().getFrom().toString() + " до " + dataList.get(position).getTerm().getTo().toString() +" дней");
+        holder.nextCreditSum.setText(dataList.get(position).getAmount().getTo().toString()+"₽");
         //setting image holder with glide
         Glide.with(context)
                 .load(dataList.get(position)
@@ -128,7 +131,7 @@ public class AdapterCloak extends RecyclerView.Adapter<AdapterCloak.ViewHolder> 
 
         //declaring items
         ConstraintLayout click_layout;
-        TextView firstCreditSum, percentRate;
+        TextView firstCreditSum, percentRate, timeToGet, payLoanTime, nextCreditSum;;
         ImageView imgCompany;
         Button button;
         ProgressBar progressBarGlide;
@@ -143,6 +146,10 @@ public class AdapterCloak extends RecyclerView.Adapter<AdapterCloak.ViewHolder> 
             imgCompany = itemView.findViewById(R.id.imgCompany);
             firstCreditSum = itemView.findViewById(R.id.firstCreditSum);
             percentRate = itemView.findViewById(R.id.percentRate);
+            timeToGet = itemView.findViewById(R.id.timeToGet);
+            payLoanTime = itemView.findViewById(R.id.payLoanTime);
+            nextCreditSum = itemView.findViewById(R.id.nextCreditSum);
+
 
         }
     }

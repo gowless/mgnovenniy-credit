@@ -50,7 +50,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/nextCreditSum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_medium"
@@ -144,13 +144,15 @@
                 app:srcCompat="@drawable/time_icon" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/timeToGet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/text_bold"
                 android:text="TextView"
                 android:textColor="@color/text_time_color"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView6"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -292,7 +294,7 @@
                 app:layout_constraintGuide_end="90dp" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/payLoanTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_medium"
@@ -327,7 +329,7 @@
             android:layout_marginTop="12dp"
             android:background="@drawable/button_bg_selector"
             android:fontFamily="@font/roboto_bold"
-            android:text="@string/get_credit"
+            android:text="@string/detailbutton"
             android:textColor="#fff"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline26"

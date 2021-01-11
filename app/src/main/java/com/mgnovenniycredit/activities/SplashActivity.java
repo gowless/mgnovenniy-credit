@@ -13,13 +13,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.mgnovenniycredit.MainClass;
 import com.mgnovenniycredit.R;
-import com.mgnovenniycredit.models.get.Data;
-import com.mgnovenniycredit.models.get.Liste;
+import com.mgnovenniycredit.models.post.get.Data;
+import com.mgnovenniycredit.models.post.get.Liste;
 import com.mgnovenniycredit.network.Initializator;
 import com.mgnovenniycredit.network.Interface;
 
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import retrofit2.Call;
@@ -46,6 +49,9 @@ public class SplashActivity extends AppCompatActivity {
     public static int numberOfTabs;
     //names of each tab
     public static String first, second, third;
+
+    public static List<Liste> testDataList = new ArrayList<>();
+    public static List<Liste> testDataList2 = new ArrayList<>();
 
 
     //carrier name string
@@ -120,7 +126,7 @@ public class SplashActivity extends AppCompatActivity {
     //setting to get json file and parse it to models in main case
     public void getJsonData() {
         Interface apiInterfaceCount = Initializator.getClient().create(Interface.class);
-        Call<Data> call = apiInterfaceCount.getData();
+        Call<Data> call = apiInterfaceCount.getData(MainClass.REGION, MainClass.APPID);
         call.enqueue(new Callback<Data>() {
             @Override
             public void onResponse(@NonNull Call<Data> call, @NonNull Response<Data> response) {
@@ -130,6 +136,31 @@ public class SplashActivity extends AppCompatActivity {
                 numberOfTabs = response.body().getCategories().size();
                 listDataBad = response.body().getList();
                 listDataZero = response.body().getList();
+
+                //iterator for 2-nd tab (new list)
+                Iterator<Liste> x = listDataZero.iterator();
+                while (x.hasNext()){
+                    Liste s = x.next();
+                    if (s.getCategories().contains("zero")){
+                        testDataList.add(s);
+                    } else {
+                        //x.remove();
+                    }
+                }
+
+
+                //iterator for 3-rd tab (bad list)
+                Iterator<Liste> i = listDataBad.iterator();
+                while (i.hasNext()){
+                    Liste m = i.next();
+                    if (m.getCategories().contains("badCreditHistory")){
+                        testDataList2.add(m);
+
+                    } else {
+                        //  i.remove();
+                    }
+                }
+
 
                 //switching between numbers of tabs (maximum - 3)
                 switch (numberOfTabs) {
@@ -149,7 +180,7 @@ public class SplashActivity extends AppCompatActivity {
                         break;
                 }
                 //open MainActivity
-                getBeforeMain();
+                getCloak();
             }
 
             @Override
@@ -166,7 +197,7 @@ public class SplashActivity extends AppCompatActivity {
     //setting to get json file and parse it to models in case of cloak
      public void getJsonDataCloak(){
          Interface apiInterfaceCount = Initializator.getClient().create(Interface.class);
-         Call<Data> call = apiInterfaceCount.getData();
+         Call<Data> call = apiInterfaceCount.getData(MainClass.REGION, MainClass.APPID);
          call.enqueue(new Callback<Data>() {
              @Override
              public void onResponse(@NonNull Call<Data> call, @NonNull Response<Data> response) {
@@ -176,6 +207,30 @@ public class SplashActivity extends AppCompatActivity {
                  numberOfTabs = response.body().getCategories().size();
                  listDataBad = response.body().getList();
                  listDataZero = response.body().getList();
+
+                 //iterator for 2-nd tab (new list)
+                 Iterator<Liste> x = listDataZero.iterator();
+                 while (x.hasNext()){
+                     Liste s = x.next();
+                     if (s.getCategories().contains("zero")){
+                         testDataList.add(s);
+                     } else {
+                         //x.remove();
+                     }
+                 }
+
+
+                 //iterator for 3-rd tab (bad list)
+                 Iterator<Liste> i = listDataBad.iterator();
+                 while (i.hasNext()){
+                     Liste m = i.next();
+                     if (m.getCategories().contains("badCreditHistory")){
+                         testDataList2.add(m);
+
+                     } else {
+                         //  i.remove();
+                     }
+                 }
 
                  //switching between numbers of tabs (maximum - 3)
                  switch (numberOfTabs) {
@@ -195,7 +250,7 @@ public class SplashActivity extends AppCompatActivity {
                          break;
                  }
                  //open cloak
-               getBeforeMain();
+               getCloak();
              }
 
              @Override

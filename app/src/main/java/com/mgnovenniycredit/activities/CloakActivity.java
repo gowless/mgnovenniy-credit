@@ -11,6 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -37,6 +38,9 @@ public class CloakActivity extends AppCompatActivity {
 
     //text pls
     TextView textViewPls;
+
+    //constraint
+    ConstraintLayout topConstraint;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +74,14 @@ public class CloakActivity extends AppCompatActivity {
                 startActivity(new Intent(CloakActivity.this, InfoDetailsActivity.class));
             }
         });
+
+        topConstraint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CloakActivity.this, InfoDetailsActivity.class));
+            }
+        });
+
 
     }
 
@@ -112,6 +124,8 @@ public class CloakActivity extends AppCompatActivity {
 
     // declaring main vars
     private void declareVars(){
+        //constraint click
+        topConstraint = findViewById(R.id.topConstraint);
         //textview and image of non-inherent case
         textView = findViewById(R.id.text_non_Ithernet);
         imageView = findViewById(R.id.non_Ithernet);

@@ -36,8 +36,8 @@ public class FragmentWithBadList extends Fragment {
 
         //enabling cache for better view experience
         recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
-        RecyclerAdapterWithBadList recyclerAdapterWithBadList = new RecyclerAdapterWithBadList(getContext(), SplashActivity.listDataBad);
-        recyclerAdapterWithBadList.setDataList(SplashActivity.listDataBad);
+        RecyclerAdapterWithBadList recyclerAdapterWithBadList = new RecyclerAdapterWithBadList(getContext(), SplashActivity.testDataList);
+        recyclerAdapterWithBadList.setDataList(SplashActivity.testDataList);
         recyclerView.setAdapter(recyclerAdapterWithBadList);
 
         return view;

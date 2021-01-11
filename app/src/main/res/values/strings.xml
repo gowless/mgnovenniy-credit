@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Кот Кредит</string>
+    <string name="app_name">Мгновенный Кредит</string>
     <string name="stavka">Ставка</string>
     <string name="FirstCredit">Первый кредит</string>
     <string name="first_credit">Первый кредит</string>
@@ -39,4 +39,5 @@
     <string name="app_naim">МГНОВЕННЫЙ КРЕДИТ</string>
     <string name="non_inet">Отсутствует подключение к интернету!</string>
     <string name="pls">Пожалуйста перезагрузите приложение.</string>
+    <string name="detailbutton">ПОДРОБНЕЕ</string>
 </resources>

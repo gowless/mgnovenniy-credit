@@ -34,8 +34,8 @@ public class FragmentZeroList extends Fragment {
         //enabling cache for better view experience
         recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
 
-        RecyclerAdapterWithZeroList recyclerAdapterWithZeroList = new RecyclerAdapterWithZeroList(getContext(), SplashActivity.listDataZero);
-        recyclerAdapterWithZeroList.setDataList(SplashActivity.listDataZero);
+        RecyclerAdapterWithZeroList recyclerAdapterWithZeroList = new RecyclerAdapterWithZeroList(getContext(), SplashActivity.testDataList2);
+        recyclerAdapterWithZeroList.setDataList(SplashActivity.testDataList2);
         recyclerView.setAdapter(recyclerAdapterWithZeroList);
         return view;
     }

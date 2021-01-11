@@ -1,9 +1,9 @@
-package com.mgnovenniycredit.models.get;
+package com.mgnovenniycredit.models.post.get;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Term {
+public class Amount {
 
     @SerializedName("from")
     @Expose

@@ -7,6 +7,7 @@
     tools:context=".activities.BeforeMainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:clickable="true"
         android:id="@+id/topConstraint"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -16,7 +17,8 @@
         android:paddingBottom="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:focusable="true">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline3"

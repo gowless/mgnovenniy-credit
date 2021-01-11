@@ -1,4 +1,4 @@
-package com.mgnovenniycredit.models.get;
+package com.mgnovenniycredit.models.post.get;
 
 
 import com.google.gson.annotations.Expose;
@@ -20,7 +20,7 @@ public class Data {
     @SerializedName("categories")
     @Expose
     private List<Category> categories = null;
-    @SerializedName("list")
+    @SerializedName("listoffers")
     @Expose
     private List<Liste> list = null;
 

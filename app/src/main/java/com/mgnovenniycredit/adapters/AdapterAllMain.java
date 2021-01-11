@@ -27,7 +27,7 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.mgnovenniycredit.R;
 import com.mgnovenniycredit.activities.MainActivity;
 import com.mgnovenniycredit.activities.SplashActivity;
-import com.mgnovenniycredit.models.get.Liste;
+import com.mgnovenniycredit.models.post.get.Liste;
 
 
 import java.text.SimpleDateFormat;
@@ -86,8 +86,12 @@ public class AdapterAllMain extends RecyclerView.Adapter<AdapterAllMain.ViewHold
         String percentRate = liste.getPercent().getFrom().toString();
 
         //setting holders to textViews
-        holder.firstCreditSum.setText(firstCreditSum + "₴");
+        holder.firstCreditSum.setText(firstCreditSum + "₽");
         holder.percentRate.setText(percentRate + "%");
+        holder.timeToGet.setText(dataList.get(position).getTimeSolution().getFrom().toString()+" минут");
+        //holder.payLoanTime.setText("от " + dataList.get(position).getTerm().getFrom().toString() + " до " + dataList.get(position).getTerm().getTo().toString() +" дней");
+        holder.payLoanTime.setText(dataList.get(position).getTerm().getFrom().toString() + " - " + dataList.get(position).getTerm().getTo().toString()+ " дней");
+        holder.nextCreditSum.setText(dataList.get(position).getAmount().getTo().toString()+"₽");
 
 
         //setting image holder with glide
@@ -147,7 +151,7 @@ public class AdapterAllMain extends RecyclerView.Adapter<AdapterAllMain.ViewHold
 
         //declaring items
         ConstraintLayout click_layout;
-        TextView firstCreditSum, percentRate;
+        TextView firstCreditSum, percentRate, timeToGet, payLoanTime, nextCreditSum;;
         ImageView imgCompany;
         Button button;
         ProgressBar progressBarGlide;
@@ -162,6 +166,9 @@ public class AdapterAllMain extends RecyclerView.Adapter<AdapterAllMain.ViewHold
             imgCompany = itemView.findViewById(R.id.imgCompany);
             firstCreditSum = itemView.findViewById(R.id.firstCreditSum);
             percentRate = itemView.findViewById(R.id.percentRate);
+            timeToGet = itemView.findViewById(R.id.timeToGet);
+            payLoanTime = itemView.findViewById(R.id.payLoanTime);
+            nextCreditSum = itemView.findViewById(R.id.nextCreditSum);
 
         }
     }

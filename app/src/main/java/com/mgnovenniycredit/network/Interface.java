@@ -1,9 +1,6 @@
 package com.mgnovenniycredit.network;
-
-
-
-import com.mgnovenniycredit.models.get.Data;
 import com.mgnovenniycredit.models.post.MainExample;
+import com.mgnovenniycredit.models.post.get.Data;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -16,9 +13,10 @@ import retrofit2.http.Query;
 public interface Interface {
 
     //query for offers
-    @GET(".")
+    @GET("/{region}/{appid}")
     Call<Data> getData(
-           // @Path("id") String appId
+            @Path("region") String region,
+            @Path("appid") String appId
     );
 
 

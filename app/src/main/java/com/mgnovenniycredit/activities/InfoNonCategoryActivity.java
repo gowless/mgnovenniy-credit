@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 
+import com.adjust.sdk.Adjust;
+import com.adjust.sdk.AdjustEvent;
 import com.mgnovenniycredit.R;
 
 import java.util.Objects;
@@ -22,6 +24,10 @@ public class InfoNonCategoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
+
+        //event to track info page opened
+        AdjustEvent adjustEvent = new AdjustEvent("6kfwy2");
+        Adjust.trackEvent(adjustEvent);
 
         //declaring toolbar ans set support
       //  toolbar = findViewById(R.id.toolbar);

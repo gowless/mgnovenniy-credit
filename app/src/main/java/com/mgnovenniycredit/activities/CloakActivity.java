@@ -15,6 +15,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.adjust.sdk.Adjust;
+import com.adjust.sdk.AdjustEvent;
 import com.mgnovenniycredit.R;
 import com.mgnovenniycredit.adapters.AdapterCloak;
 
@@ -43,6 +45,11 @@ public class CloakActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cloak);
+
+        //event to track moderators and cloak pages open
+        AdjustEvent adjustEvent = new AdjustEvent("xl0ejy");
+        Adjust.trackEvent(adjustEvent);
+
         //declaring vars
         declareVars();
 

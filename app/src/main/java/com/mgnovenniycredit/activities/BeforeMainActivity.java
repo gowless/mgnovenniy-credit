@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.adjust.sdk.Adjust;
+import com.adjust.sdk.AdjustEvent;
 import com.mgnovenniycredit.R;
 
 
@@ -61,6 +63,9 @@ public class BeforeMainActivity extends AppCompatActivity {
         //check for network connection
         if (isNetworkAvailable()) {
         } else {
+            //event to track non-ethernet cases
+            AdjustEvent adjustEvent = new AdjustEvent("kkkmir");
+            Adjust.trackEvent(adjustEvent);
             setNonEthernetCase();
         }
 

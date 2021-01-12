@@ -55,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/more_one"
-                android:textSize="14sp"
+                android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline37"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_medium"
                 android:text="TextView"
-                android:textSize="15sp"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline38"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -98,7 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="25dp" />
+            app:layout_constraintGuide_begin="20dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline36"
@@ -125,7 +125,7 @@
             <ImageView
                 android:id="@+id/imgCompany"
                 android:layout_width="0dp"
-                android:layout_height="70dp"
+                android:layout_height="90dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -200,7 +200,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/percent_rate"
-                android:textSize="16sp"
+                android:textSize="17sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline24"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -241,7 +241,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/FirstCredit"
-                android:textSize="16sp"
+                android:textSize="17sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline27"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -310,7 +310,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_medium"
                 android:text="TextView"
-                android:textSize="15sp"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline31"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -320,7 +320,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/fire_date"
-                android:textSize="14sp"
+                android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline35"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -331,7 +331,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_end="25dp" />
+            app:layout_constraintGuide_end="20dp" />
 
         <Button
             android:id="@+id/button"
@@ -341,13 +341,12 @@
             android:background="@drawable/button_bg_selector"
             android:fontFamily="@font/roboto_bold"
             android:text="@string/get_credit"
-            android:textColor="#fff"
+            android:textColor="@color/design_default_color_background"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline26"
             app:layout_constraintEnd_toStartOf="@+id/guideline23"
             app:layout_constraintStart_toStartOf="@+id/guideline22"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout10"
-            tools:targetApi="lollipop" />
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout10" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline39"

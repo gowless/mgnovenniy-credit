@@ -20,6 +20,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import com.adjust.sdk.Adjust;
+import com.adjust.sdk.AdjustEvent;
 import com.google.android.material.tabs.TabLayout;
 import com.mgnovenniycredit.R;
 import com.mgnovenniycredit.adapters.uitabbed.SectionsPagerAdapter;
@@ -82,6 +84,9 @@ public class MainActivity extends AppCompatActivity {
         if (isNetworkAvailable()) {
 
         } else {
+            //event to track non-ethernet cases
+            AdjustEvent adjustEvent = new AdjustEvent("kkkmir");
+            Adjust.trackEvent(adjustEvent);
             setNonEthernetCase();
         }
 

@@ -17,6 +17,8 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.adjust.sdk.Adjust;
+import com.adjust.sdk.AdjustEvent;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
@@ -77,7 +79,7 @@ public class AdapterCloak extends RecyclerView.Adapter<AdapterCloak.ViewHolder> 
         holder.percentRate.setText(percentRate + "%");
         holder.timeToGet.setText(dataList.get(position).getTimeSolution().getFrom().toString()+" минут");
         //holder.payLoanTime.setText("от " + dataList.get(position).getTerm().getFrom().toString() + " до " + dataList.get(position).getTerm().getTo().toString() +" дней");
-        holder.payLoanTime.setText(dataList.get(position).getTerm().getFrom().toString() + " - " + dataList.get(position).getTerm().getTo().toString()+ " дней");
+        holder.payLoanTime.setText(dataList.get(position).getTerm().getFrom().toString() + "-" + dataList.get(position).getTerm().getTo().toString()+ " дней");
         holder.nextCreditSum.setText(dataList.get(position).getAmount().getTo().toString()+"₽");
         //setting image holder with glide
         Glide.with(context)
@@ -104,6 +106,10 @@ public class AdapterCloak extends RecyclerView.Adapter<AdapterCloak.ViewHolder> 
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //event to track offer details pages opened
+                AdjustEvent adjustEvent = new AdjustEvent("68lxzq");
+                Adjust.trackEvent(adjustEvent);
+
                 Intent myIntent = new Intent(context, DetailsOfferActivity.class);
                 myIntent.putExtra("position", position);
                 context.startActivity(myIntent);

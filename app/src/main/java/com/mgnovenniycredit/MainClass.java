@@ -33,7 +33,7 @@ public class MainClass extends Application {
     public void onCreate() {
         super.onCreate();
         // Configure adjust SDK.
-        String appToken = "75ekkl5aivleyo";
+        String appToken = "yebqteksfvnk";
         String environment = AdjustConfig.ENVIRONMENT_SANDBOX;
         AdjustConfig config = new AdjustConfig(this, appToken, environment);
         // enable all logs
@@ -72,7 +72,6 @@ public class MainClass extends Application {
         // OneSignal Initialization
         OneSignal.initWithContext(this);
         OneSignal.setAppId(ONESIGNAL_APP_ID);
-
 
 
         registerActivityLifecycleCallbacks(new AdjustLifecycleCallbacks());

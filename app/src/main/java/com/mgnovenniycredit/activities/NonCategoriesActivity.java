@@ -15,6 +15,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.adjust.sdk.Adjust;
+import com.adjust.sdk.AdjustEvent;
 import com.mgnovenniycredit.R;
 import com.mgnovenniycredit.adapters.NonCategoriesAllAdapter;
 
@@ -55,6 +57,10 @@ public class NonCategoriesActivity extends AppCompatActivity {
         if(isNetworkAvailable()){
             settingAdapter();
         } else {
+            //event to track non-ethernet cases
+            AdjustEvent adjustEvent = new AdjustEvent("kkkmir");
+            Adjust.trackEvent(adjustEvent);
+
             //setting non-ethernet page
             setNonEthernetCase();
         }

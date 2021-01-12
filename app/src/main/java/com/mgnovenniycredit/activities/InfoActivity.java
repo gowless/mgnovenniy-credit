@@ -7,6 +7,8 @@ import android.os.Bundle;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.adjust.sdk.Adjust;
+import com.adjust.sdk.AdjustEvent;
 import com.mgnovenniycredit.R;
 
 public class InfoActivity extends AppCompatActivity {
@@ -19,6 +21,10 @@ public class InfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
+
+        //event to track info page opened
+        AdjustEvent adjustEvent = new AdjustEvent("6kfwy2");
+        Adjust.trackEvent(adjustEvent);
 
         //declaring toolbar ans set support
         //toolbar = findViewById(R.id.toolbar);

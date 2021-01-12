@@ -2,6 +2,7 @@ package com.mgnovenniycredit.activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
@@ -65,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //setting prefs to variables
+        getPrefs();
 
         //top constraint init
         topConstraint = findViewById(R.id.topConstraint);
@@ -208,7 +212,16 @@ public class MainActivity extends AppCompatActivity {
 //        infoTabIcon.setVisibility(View.GONE);
     }
 
+    private void getPrefs(){
+        SharedPreferences settings = getSharedPreferences("LOCAL", Context.MODE_PRIVATE);
 
+        //tt = settings.getString("trackerToken", "");
+       //tn = settings.getString("trackerName", "");
+        net = settings.getString("network", "");
+        cam = settings.getString("campaign", "");
+        adg = settings.getString("adgroup", "");
+        cre = settings.getString("creative", "");
+    }
 
 
 }

@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -55,6 +56,7 @@ public class MainClass extends Application {
 
                 //put to sharedprefs
                 editor.putString("trackerToken", trackerToken);
+                Log.d("adjust", network);
                 editor.putString("trackerName", trackerName);
                 editor.putString("network", network);
                 editor.putString("campaign", campaign);

@@ -2,7 +2,9 @@ package com.mgnovenniycredit.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -138,6 +140,15 @@ public class AdapterAllMain extends RecyclerView.Adapter<AdapterAllMain.ViewHold
                 v.getContext().startActivity(browserIntent);
             }
         }); */
+
+        holder.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //starting default web-browser to current tab wit main URL
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(parseLinkFromApi(position)));
+                v.getContext().startActivity(browserIntent);
+            }
+        });
 
     }
 

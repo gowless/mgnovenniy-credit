@@ -49,6 +49,10 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.8.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
 
+    //facebook sdk
+    implementation 'com.facebook.android:facebook-android-sdk:5.15.3'
+    implementation 'com.facebook.android:facebook-applinks:5.15.3'
+
     //adjust
     implementation 'com.adjust.sdk:adjust-android:4.24.1'
 

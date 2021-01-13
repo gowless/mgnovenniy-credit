@@ -119,28 +119,6 @@ public class AdapterAllMain extends RecyclerView.Adapter<AdapterAllMain.ViewHold
                 .into(holder.imgCompany);
 
 
-/*        holder.click_layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                AdjustEvent adjustEvent = new AdjustEvent("8q9nkq");
-                Adjust.trackEvent(adjustEvent);
-
-
-
-                mFirebaseAnalytics = FirebaseAnalytics.getInstance(context);
-
-                Bundle bundle = new Bundle();
-                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, liste.getOfferId().toString());
-                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, liste.getOfferName());
-                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.ADD_TO_CART, bundle);
-
-                //starting default web-browser to current tab wit main URL
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(parseLinkFromApi(position)));
-                v.getContext().startActivity(browserIntent);
-            }
-        }); */
-
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -172,7 +150,6 @@ public class AdapterAllMain extends RecyclerView.Adapter<AdapterAllMain.ViewHold
 
             //initializing
             progressBarGlide = itemView.findViewById(R.id.progressBarGlide);
-          //  click_layout = itemView.findViewById(R.id.click_layout);
             button = itemView.findViewById(R.id.button);
             imgCompany = itemView.findViewById(R.id.imgCompany);
             firstCreditSum = itemView.findViewById(R.id.firstCreditSum);
@@ -243,9 +220,9 @@ public class AdapterAllMain extends RecyclerView.Adapter<AdapterAllMain.ViewHold
         //Main URI declaring and initialising
         String mainEditedURI = liste.getUrl();
         //manipulating with main string, changing parameters
-        mainEditedURI = mainEditedURI.replaceAll(Pattern.quote("{client_id}"), getId());
-        mainEditedURI = mainEditedURI.replaceAll(Pattern.quote("{advertising_id}"), SplashActivity.ad_id);
-        mainEditedURI = mainEditedURI.replaceAll(Pattern.quote("{app}"), "com.orkotkreditru");
+        mainEditedURI = mainEditedURI.replaceAll(Pattern.quote("{client_id}"), MainActivity.subid1);
+        mainEditedURI = mainEditedURI.replaceAll(Pattern.quote("{advertising_id}"), MainActivity.subid2);
+        mainEditedURI = mainEditedURI.replaceAll(Pattern.quote("{app}"), MainActivity.subid3);
 
         //if organic/non-organic campaign
         if (MainActivity.net.equals("Organic")) {
@@ -258,7 +235,7 @@ public class AdapterAllMain extends RecyclerView.Adapter<AdapterAllMain.ViewHold
 
 
         //if organic/non-organic campaign
-        if (MainActivity.cam == "") {
+        if (MainActivity.cam.equals("")) {
             mainEditedURI = mainEditedURI.replaceAll(Pattern.quote("{campaign}"), "organic");
         } else {
             mainEditedURI = mainEditedURI.replaceAll(Pattern.quote("{campaign}"), MainActivity.cam);
@@ -267,7 +244,7 @@ public class AdapterAllMain extends RecyclerView.Adapter<AdapterAllMain.ViewHold
 
 
         //if organic/non-organic adgroup
-        if (MainActivity.adg == "") {
+        if (MainActivity.adg.equals("")) {
             mainEditedURI = mainEditedURI.replaceAll(Pattern.quote("{adgroup}"), "organic");
         } else {
             mainEditedURI = mainEditedURI.replaceAll(Pattern.quote("{adgroup}"), MainActivity.adg);

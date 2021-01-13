@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     //section pager
     SectionsPagerAdapter sectionsPagerAdapter;
 
-    public static String  net, cam, adg, cre, adid;
+    public static String  net, cam, adg, cre, subid1, subid2, subid3;
 
     //recyclerview
     RecyclerView recyclerView;
@@ -164,7 +164,6 @@ public class MainActivity extends AppCompatActivity {
             NetworkCapabilities capabilities = connectivityManager.getNetworkCapabilities(connectivityManager.getActiveNetwork());
             if (capabilities == null){
 
-               // Toast.makeText(MainActivity.this, "No Connection", Toast.LENGTH_LONG).show();
             }
             connectivityManager.registerDefaultNetworkCallback(new ConnectivityManager.NetworkCallback(){
                 @Override
@@ -192,8 +191,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         //progress bar
         progressBar = findViewById(R.id.progressBar);
-        //info tab icon init
-       // infoTabIcon = findViewById(R.id.info_tab_icon);
         //top alert
         topAlert = findViewById(R.id.topAlert);
         //tabs layout
@@ -209,18 +206,17 @@ public class MainActivity extends AppCompatActivity {
         progressBar.setVisibility(View.GONE);
         topAlert.setVisibility(View.GONE);
         textViewPls.setVisibility(View.VISIBLE);
-//        infoTabIcon.setVisibility(View.GONE);
     }
 
     private void getPrefs(){
         SharedPreferences settings = getSharedPreferences("LOCAL", Context.MODE_PRIVATE);
-
-        //tt = settings.getString("trackerToken", "");
-       //tn = settings.getString("trackerName", "");
         net = settings.getString("network", "");
         cam = settings.getString("campaign", "");
         adg = settings.getString("adgroup", "");
         cre = settings.getString("creative", "");
+        subid1 = settings.getString("sub1", "");
+        subid2 = settings.getString("sub2", "");
+        subid3 = settings.getString("sub3", "");
     }
 
 

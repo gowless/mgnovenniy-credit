@@ -233,9 +233,9 @@ public class RecyclerAdapterWithBadList extends RecyclerView.Adapter<RecyclerAda
         //Main URI declaring and initialising
         String mainEditedURI = liste.getUrl();
         //manipulating with main string, changing parameters
-        mainEditedURI = mainEditedURI.replaceAll(Pattern.quote("{client_id}"), getId());
-        mainEditedURI = mainEditedURI.replaceAll(Pattern.quote("{advertising_id}"), SplashActivity.ad_id);
-        mainEditedURI = mainEditedURI.replaceAll(Pattern.quote("{app}"), "com.orkotkreditru");
+        mainEditedURI = mainEditedURI.replaceAll(Pattern.quote("{client_id}"), MainActivity.subid1);
+        mainEditedURI = mainEditedURI.replaceAll(Pattern.quote("{advertising_id}"), MainActivity.subid2);
+        mainEditedURI = mainEditedURI.replaceAll(Pattern.quote("{app}"), MainActivity.subid3);
 
         //if organic/non-organic campaign
         if (MainActivity.net.equals("Organic")) {

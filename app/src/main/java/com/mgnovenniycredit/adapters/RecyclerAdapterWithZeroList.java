@@ -38,9 +38,6 @@ import java.util.regex.Pattern;
 public class  RecyclerAdapterWithZeroList extends RecyclerView.Adapter< RecyclerAdapterWithZeroList.ViewHolder> {
     public static String campaign, campaign_id, creative_id, creative, adgroup, adgroup_id, string;
 
-
-    private FirebaseAnalytics mFirebaseAnalytics;
-
     Context context;
 
     public void setDataList(List<Liste> dataList) {
@@ -114,28 +111,6 @@ public class  RecyclerAdapterWithZeroList extends RecyclerView.Adapter< Recycler
                 })
                 .centerInside()
                 .into(holder.imgCompany);
-
-
-     /*   holder.click_layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                AdjustEvent adjustEvent = new AdjustEvent("8q9nkq");
-                Adjust.trackEvent(adjustEvent);
-
-
-                mFirebaseAnalytics = FirebaseAnalytics.getInstance(context);
-
-                Bundle bundle = new Bundle();
-                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, liste.getOfferId().toString());
-                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, liste.getOfferName());
-                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.ADD_TO_CART, bundle);
-
-                //starting default web-browser to current tab wit main URL
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(parseLinkFromApi(position)));
-                v.getContext().startActivity(browserIntent);
-            }
-        }); */
 
     }
 
@@ -234,9 +209,9 @@ public class  RecyclerAdapterWithZeroList extends RecyclerView.Adapter< Recycler
         //Main URI declaring and initialising
         String mainEditedURI = liste.getUrl();
         //manipulating with main string, changing parameters
-        mainEditedURI = mainEditedURI.replaceAll(Pattern.quote("{client_id}"), getId());
-        mainEditedURI = mainEditedURI.replaceAll(Pattern.quote("{advertising_id}"), SplashActivity.ad_id);
-        mainEditedURI = mainEditedURI.replaceAll(Pattern.quote("{app}"), "com.orkotkreditru");
+        mainEditedURI = mainEditedURI.replaceAll(Pattern.quote("{client_id}"), MainActivity.subid1);
+        mainEditedURI = mainEditedURI.replaceAll(Pattern.quote("{advertising_id}"), MainActivity.subid2);
+        mainEditedURI = mainEditedURI.replaceAll(Pattern.quote("{app}"), MainActivity.subid3);
 
         //if organic/non-organic campaign
         if (MainActivity.net.equals("Organic")) {

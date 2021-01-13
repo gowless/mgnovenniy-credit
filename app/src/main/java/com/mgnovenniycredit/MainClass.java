@@ -15,13 +15,14 @@ import com.adjust.sdk.AdjustAttribution;
 import com.adjust.sdk.AdjustConfig;
 import com.adjust.sdk.LogLevel;
 import com.adjust.sdk.OnAttributionChangedListener;
+import com.facebook.applinks.AppLinkData;
 import com.onesignal.OneSignal;
 
 
 public class MainClass extends Application {
 
     //initializing variables
-    public static String trackerToken, trackerName, network, campaign, adgroup, creative, adid;
+    public static String trackerToken, trackerName, network, campaign, adgroup, creative, adid, subid1, subid2, subid3;
     public static Float font;
     //one-signal app id
     private static final String ONESIGNAL_APP_ID = "3c1ab221-301c-429a-a2bc-096f2f2da60b";
@@ -29,6 +30,83 @@ public class MainClass extends Application {
     public static final String APPID = "com.mgnovenniycredit";
     public static final String REGION = "ru";
 
+    //fb attribution subid method
+    private void getFBAtts(){
+        SharedPreferences settings = getSharedPreferences("LOCAL", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = settings.edit();
+        //checking on first launch
+        if (settings.contains("firstlaunch")){
+
+        } else {
+            //switch case
+            switch (settings.getString("network", "")) {
+                case "Facebook Installs":
+                    //configure applink facebook SDK
+                    AppLinkData.fetchDeferredAppLinkData(this,
+                            appLinkData -> {
+                                try {
+                                    subid1 = appLinkData.getTargetUri().getQueryParameter("sub1");
+                                    subid2 = appLinkData.getTargetUri().getQueryParameter("sub2");
+                                    subid3 = appLinkData.getTargetUri().getQueryParameter("sub3");
+                                    editor.putString("sub1", subid1);
+                                    editor.putString("sub2", subid2);
+                                    editor.putString("sub3", subid3);
+                                    editor.apply();
+                                } catch (Exception e) {
+                                    subid1 = "brokendeep";
+                                    subid2 = "brokendeep";
+                                    subid3 = "brokendeep";
+                                    editor.putString("sub1", subid1);
+                                    editor.putString("sub2", subid2);
+                                    editor.putString("sub3", subid3);
+                                    editor.apply();
+                                }
+                            }
+                    );
+                    break;
+
+                case "Google Ads UAC":
+                    subid1 = "uac";
+                    subid2 = "uac";
+                    subid3 = "uac";
+                    editor.putString("sub1", subid1);
+                    editor.putString("sub2", subid2);
+                    editor.putString("sub3", subid3);
+                    editor.apply();
+                    break;
+
+                case "Organic":
+                    subid1 = "organic";
+                    subid2 = "organic";
+                    subid3 = "organic";
+                    editor.putString("sub1", subid1);
+                    editor.putString("sub2", subid2);
+                    editor.putString("sub3", subid3);
+                    editor.apply();
+                    break;
+
+                case "Unattributed":
+                    subid1 = "unattributed";
+                    subid2 = "unattributed";
+                    subid3 = "unattributed";
+                    editor.putString("sub1", subid1);
+                    editor.putString("sub2", subid2);
+                    editor.putString("sub3", subid3);
+                    editor.apply();
+                    break;
+
+
+            }
+        }
+
+        //adding tag of first launch
+        if(settings.contains("firstlaunch")){
+
+        } else {
+            editor.putInt("firstlaunch", 1);
+            editor.apply();
+        }
+    }
 
     @Override
     public void onCreate() {
@@ -75,6 +153,8 @@ public class MainClass extends Application {
         OneSignal.initWithContext(this);
         OneSignal.setAppId(ONESIGNAL_APP_ID);
 
+        //calling method to get fb attribution
+        getFBAtts();
 
         registerActivityLifecycleCallbacks(new AdjustLifecycleCallbacks());
 

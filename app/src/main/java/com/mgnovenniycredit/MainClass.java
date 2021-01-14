@@ -46,6 +46,7 @@ public class MainClass extends Application {
                             appLinkData -> {
                                 try {
                                     subid1 = appLinkData.getTargetUri().getQueryParameter("sub1");
+                                    Log.d("test", appLinkData.getTargetUri().toString());
                                     subid2 = appLinkData.getTargetUri().getQueryParameter("sub2");
                                     subid3 = appLinkData.getTargetUri().getQueryParameter("sub3");
                                     editor.putString("sub1", subid1);
@@ -63,6 +64,7 @@ public class MainClass extends Application {
                                 }
                             }
                     );
+
                     break;
 
                 case "Google Ads UAC":
@@ -93,6 +95,9 @@ public class MainClass extends Application {
                     editor.putString("sub2", subid2);
                     editor.putString("sub3", subid3);
                     editor.apply();
+                    break;
+
+                default:
                     break;
 
 

@@ -13,8 +13,6 @@ import com.mgnovenniycredit.R;
 
 public class InfoActivity extends AppCompatActivity {
 
-    //init toolbar
-   // Toolbar toolbar;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -26,19 +24,7 @@ public class InfoActivity extends AppCompatActivity {
         AdjustEvent adjustEvent = new AdjustEvent("6kfwy2");
         Adjust.trackEvent(adjustEvent);
 
-        //declaring toolbar ans set support
-        //toolbar = findViewById(R.id.toolbar);
-       // setSupportActionBar(toolbar);
-//        Objects.requireNonNull(getSupportActionBar()).setTitle("");
 
-
-        //onclick to back on main page
-      /*  toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(InfoActivity.this, MainActivity.class));
-            }
-        }); */
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.mgnovenniycredit.activities;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.facebook.applinks.AppLinkData;
 import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.mgnovenniycredit.MainClass;
@@ -66,6 +68,13 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        //getting fb subid's
+        if(MainClass.network == "Facebook Installs"){
+            //getting fb subid's
+            getDeepLink();
+        }
+
         //get firebase instance
         FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
@@ -262,6 +271,24 @@ public class SplashActivity extends AppCompatActivity {
 
      }
 
+    public void getDeepLink(){
+        try {
+            AppLinkData.fetchDeferredAppLinkData(getApplicationContext(), appLinkData -> {
+                if (appLinkData == null || appLinkData.getTargetUri() == null) {
+                    MainClass.subid1 = "failedFBDeepLink";
+                    MainClass.subid2 = "failedFBDeepLink";
+                    MainClass.subid3 = "failedFBDeepLink";
+                } else {
+                    MainClass.subid1 = appLinkData.getTargetUri().getQueryParameter("sub1");
+                    MainClass.subid2 = appLinkData.getTargetUri().getQueryParameter("sub2");
+                    MainClass.subid3 = appLinkData.getTargetUri().getQueryParameter("sub3");
+                }
+            });
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+    }
 
 
 }

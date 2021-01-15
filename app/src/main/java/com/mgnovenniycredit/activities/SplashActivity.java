@@ -1,8 +1,10 @@
 package com.mgnovenniycredit.activities;
 
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -55,6 +57,8 @@ public class SplashActivity extends AppCompatActivity {
     public static List<Liste> testDataList = new ArrayList<>();
     public static List<Liste> testDataList2 = new ArrayList<>();
 
+    SharedPreferences settings;
+    SharedPreferences.Editor editor;
 
     //carrier name string
     String carrier;
@@ -69,11 +73,14 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        SharedPreferences settings = getSharedPreferences("LOCAL", Context.MODE_PRIVATE);
+
         //getting fb subid's
-        if(MainClass.network == "Facebook Installs"){
+        if(settings.getString("network", "") == "Facebook Installs"){
             //getting fb subid's
             getDeepLink();
         }
+
 
         //get firebase instance
         FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
@@ -189,7 +196,7 @@ public class SplashActivity extends AppCompatActivity {
                         break;
                 }
                 //open MainActivity
-                getBeforeMain();
+                getCloak();
             }
 
             @Override
@@ -271,21 +278,26 @@ public class SplashActivity extends AppCompatActivity {
 
      }
 
+    //getting fb deepLinkdata
+    @SuppressLint("ApplySharedPref")
     public void getDeepLink(){
+        SharedPreferences settings = getSharedPreferences("LOCAL", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = settings.edit();
         try {
             AppLinkData.fetchDeferredAppLinkData(getApplicationContext(), appLinkData -> {
                 if (appLinkData == null || appLinkData.getTargetUri() == null) {
-                    MainClass.subid1 = "failedFBDeepLink";
-                    MainClass.subid2 = "failedFBDeepLink";
-                    MainClass.subid3 = "failedFBDeepLink";
+                    editor.putString("sub1", "failedFBDeepLink");
+                    editor.putString("sub2", "failedFBDeepLink");
+                    editor.putString("sub3", "failedFBDeepLink");
+                    editor.commit();
                 } else {
-                    MainClass.subid1 = appLinkData.getTargetUri().getQueryParameter("sub1");
-                    MainClass.subid2 = appLinkData.getTargetUri().getQueryParameter("sub2");
-                    MainClass.subid3 = appLinkData.getTargetUri().getQueryParameter("sub3");
+                    editor.putString("sub1", appLinkData.getTargetUri().getQueryParameter("sub1"));
+                    editor.putString("sub2", appLinkData.getTargetUri().getQueryParameter("sub2"));
+                    editor.putString("sub3", appLinkData.getTargetUri().getQueryParameter("sub3"));
+                    editor.commit();
                 }
             });
         } catch (Exception e) {
-
             e.printStackTrace();
         }
     }

@@ -65,9 +65,6 @@
             android:name=".activities.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/ActivitySplash">
-            <intent-filter>
-                <data android:scheme="myapp"/>
-            </intent-filter>
         </activity>
         <activity
             android:name=".activities.DetailsOfferActivity"

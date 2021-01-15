@@ -22,7 +22,7 @@ import com.onesignal.OneSignal;
 public class MainClass extends Application {
 
     //initializing variables
-    public static String trackerToken, trackerName, network, campaign, adgroup, creative, adid, subid1, subid2, subid3;
+    public static String trackerToken, trackerName, network, campaign, adgroup, creative, adid, suid1, suid2, suid3;
     public static Float font;
     //one-signal app id
     private static final String ONESIGNAL_APP_ID = "3c1ab221-301c-429a-a2bc-096f2f2da60b";
@@ -45,21 +45,21 @@ public class MainClass extends Application {
                     AppLinkData.fetchDeferredAppLinkData(this,
                             appLinkData -> {
                                 try {
-                                    subid1 = appLinkData.getTargetUri().getQueryParameter("sub1");
+                                    suid1 = appLinkData.getTargetUri().getQueryParameter("sub1");
                                     Log.d("test", appLinkData.getTargetUri().toString());
-                                    subid2 = appLinkData.getTargetUri().getQueryParameter("sub2");
-                                    subid3 = appLinkData.getTargetUri().getQueryParameter("sub3");
-                                    editor.putString("sub1", subid1);
-                                    editor.putString("sub2", subid2);
-                                    editor.putString("sub3", subid3);
+                                    suid2 = appLinkData.getTargetUri().getQueryParameter("sub2");
+                                    suid3 = appLinkData.getTargetUri().getQueryParameter("sub3");
+                                    editor.putString("sub1", suid1);
+                                    editor.putString("sub2", suid2);
+                                    editor.putString("sub3", suid3);
                                     editor.apply();
                                 } catch (Exception e) {
-                                    subid1 = "brokendeep";
-                                    subid2 = "brokendeep";
-                                    subid3 = "brokendeep";
-                                    editor.putString("sub1", subid1);
-                                    editor.putString("sub2", subid2);
-                                    editor.putString("sub3", subid3);
+                                    suid1 = "brokendeep";
+                                    suid2 = "brokendeep";
+                                    suid3 = "brokendeep";
+                                    editor.putString("sub1", suid1);
+                                    editor.putString("sub2", suid2);
+                                    editor.putString("sub3", suid3);
                                     editor.apply();
                                 }
                             }
@@ -68,36 +68,33 @@ public class MainClass extends Application {
                     break;
 
                 case "Google Ads UAC":
-                    subid1 = "uac";
-                    subid2 = "uac";
-                    subid3 = "uac";
-                    editor.putString("sub1", subid1);
-                    editor.putString("sub2", subid2);
-                    editor.putString("sub3", subid3);
+                    suid1 = "uac";
+                    suid2 = "uac";
+                    suid3 = "uac";
+                    editor.putString("sub1", suid1);
+                    editor.putString("sub2", suid2);
+                    editor.putString("sub3", suid3);
                     editor.apply();
                     break;
 
                 case "Organic":
-                    subid1 = "organic";
-                    subid2 = "organic";
-                    subid3 = "organic";
-                    editor.putString("sub1", subid1);
-                    editor.putString("sub2", subid2);
-                    editor.putString("sub3", subid3);
+                    suid1 = "organic";
+                    suid2 = "organic";
+                    suid3 = "organic";
+                    editor.putString("sub1", suid1);
+                    editor.putString("sub2", suid2);
+                    editor.putString("sub3", suid3);
                     editor.apply();
                     break;
 
                 case "Unattributed":
-                    subid1 = "unattributed";
-                    subid2 = "unattributed";
-                    subid3 = "unattributed";
-                    editor.putString("sub1", subid1);
-                    editor.putString("sub2", subid2);
-                    editor.putString("sub3", subid3);
+                    suid1 = "unattributed";
+                    suid2 = "unattributed";
+                    suid3 = "unattributed";
+                    editor.putString("sub1", suid1);
+                    editor.putString("sub2", suid2);
+                    editor.putString("sub3", suid3);
                     editor.apply();
-                    break;
-
-                default:
                     break;
 
 
